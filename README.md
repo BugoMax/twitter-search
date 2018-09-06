@@ -7,12 +7,11 @@ How to start
 
 You can run `first-run.sh` or run in console - `npm install`
 and than - `npm run start`. Go to `http://localhost:8080`.
-Database on `http://localhost:3000`.
 
 How to build
 ============
 
-Run build.sh. This script will check test and after success
+Run `build.sh`. This script will check test and after success
 build the project.
 
 Run test
