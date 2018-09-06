@@ -8,9 +8,16 @@ const devConfig: ConfigInterface = {
     mode: 'dev',
     server: {
         protocol: serverProtocol,
+        hostName: 'localhost',
         port: serverPort,
         domain: `localhost:${serverPort}`,
         url: `${serverProtocol}://localhost:${serverPort}`
+    },
+    twitter: {
+        consumer_key: process.env.TWITTER_CONSUMER_KEY || '',
+        consumer_secret: process.env.TWITTER_CONSUMER_SECRET || '',
+        access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY || '',
+        access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET || ''
     }
 };
 
@@ -18,9 +25,16 @@ const prodConfig: ConfigInterface = {
     mode: 'production',
     server: {
         protocol: serverProtocol,
+        hostName: 'localhost',
         port: serverPort,
         domain: `localhost:${serverPort}`,
         url: `${serverProtocol}://localhost:${serverPort}`
+    },
+    twitter: {
+        consumer_key: process.env.TWITTER_CONSUMER_KEY || '',
+        consumer_secret: process.env.TWITTER_CONSUMER_SECRET || '',
+        access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY || '',
+        access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET || ''
     }
 };
 
