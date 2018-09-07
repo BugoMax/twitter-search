@@ -5,11 +5,11 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
 
-const getRandomNum = () => Math.floor(Math.random() * 1000) + 1;
+import GridListT from '../grid-list/GridList.jsx';
+import TimelineList from '../timeline-list/TimelineList.jsx';
 
 class Pagination extends React.Component {
 
@@ -17,7 +17,7 @@ class Pagination extends React.Component {
         super(props);
         this.state = {
             page: 0,
-            rowsPerPage: 5
+            rowsPerPage: 10
         };
 
         this.handleChangePage = this.handleChangePage.bind(this);
@@ -36,41 +36,48 @@ class Pagination extends React.Component {
 
         const { rowsPerPage, page } = this.state;
         const emptyRows = rowsPerPage - Math.min(rowsPerPage, this.props.displayArr.length - page * rowsPerPage);
+        const contentArr = this.props.displayArr.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
         return <div>
-            <Paper>
-                <Table>
-                    <TableBody>
-                        { this.props.displayArr.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+            <Table className="content__table">
+                <TableBody>
+
+                    { this.props.contentType === 'timeline'
+                        ? contentArr.map((row) => {
                             return (
-                                <TableRow key={row.date.month + row.amount + getRandomNum()}>
-                                    <TableCell component="th" scope="row">{row.date.month} {row.date.day}</TableCell>
-                                    <TableCell component="th" scope="row">{row.category}</TableCell>
-                                    <TableCell component="th" scope="row">{row.amount} $</TableCell>
-                                    <TableCell component="th" scope="row">{row.title}</TableCell>
+                                <TableRow key={row.id}>
+                                    <TableCell>
+                                        <TimelineList params={row} />
+                                    </TableCell>
                                 </TableRow>
                             );
-                        })}
-                        {emptyRows > 0 && (
-                            <TableRow style={{ height: 48 * emptyRows }}>
-                                <TableCell colSpan={6} />
-                            </TableRow>
-                        )}
-                    </TableBody>
-                    <TableFooter>
-                        <TableRow>
-                            <TablePagination
-                                colSpan={3}
-                                count={this.props.displayArr.length}
-                                rowsPerPage={rowsPerPage}
-                                page={page}
-                                onChangePage={this.handleChangePage}
-                                onChangeRowsPerPage={this.handleChangeRowsPerPage}
-                            />
+                        })
+                        : <TableRow style={{ height: 48 * emptyRows }}>
+                            <TableCell>
+                                <GridListT params={contentArr} />
+                            </TableCell>
                         </TableRow>
-                    </TableFooter>
-                </Table>
-            </Paper>
+                    }
+                    {emptyRows > 0 && this.props.contentType === 'timeline' && (
+                        <TableRow style={{ height: 48 * emptyRows }}>
+                            <TableCell colSpan={6} />
+                        </TableRow>
+                    )}
+
+                </TableBody>
+                <TableFooter>
+                    <TableRow className="content__table_pagination">
+                        <TablePagination
+                            colSpan={3}
+                            count={this.props.displayArr.length}
+                            rowsPerPage={rowsPerPage}
+                            page={page}
+                            onChangePage={this.handleChangePage}
+                            onChangeRowsPerPage={this.handleChangeRowsPerPage}
+                        />
+                    </TableRow>
+                </TableFooter>
+            </Table>
         </div>;
     }
 }
@@ -78,7 +85,8 @@ class Pagination extends React.Component {
 if (process.env !== 'production') {
 
     Pagination.propTypes = {
-        displayArr: PropTypes.array.isRequired
+        displayArr: PropTypes.array.isRequired,
+        contentType: PropTypes.string.isRequired
     };
 }
 

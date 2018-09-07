@@ -14,26 +14,15 @@ class App extends React.Component {
     render() {
 
         return <div>
-            <AppBar position="static" color="primary">
+            <AppBar position="static" color="primary" className="app-bar">
                 <Toolbar>
-                    <Typography variant="title" color="textSecondary">
+                    <Typography variant="title" color="textSecondary" className="app-bar__title">
                         Twitter search
                     </Typography>
                 </Toolbar>
             </AppBar>
 
             <SearchBar/>
-
-            <ul>
-                <li role="button" className="content-style__item">
-                    <span className="content-style__item_timeline" />
-                    <p>Embedded Grid</p>
-                </li>
-                <li role="button" className="content-style__item">
-                    <span className="content-style__item_grid" />
-                    <p>Embedded Timeline</p>
-                </li>
-            </ul>
 
             <Content/>
 
