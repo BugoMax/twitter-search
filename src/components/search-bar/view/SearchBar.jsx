@@ -8,17 +8,17 @@ import SearchIcon from '@material-ui/icons/Search';
 function SearchBar({text}) {
 
     return (
-        <div>
+        <div className="search-bar">
 
             <TextField
                 id="search"
-                className="header__search"
+                className="search-bar__field"
                 label="Enter"
                 type="search"
                 margin="normal"
                 // onChange={fireOnSearch}
             />
-            <IconButton>
+            <IconButton color="inherit">
                 <SearchIcon />
             </IconButton>
 
