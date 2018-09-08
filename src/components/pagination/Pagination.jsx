@@ -8,8 +8,8 @@ import TableRow from '@material-ui/core/TableRow';
 import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
 
-import GridListT from '../grid-list/GridList.jsx';
-import TimelineList from '../timeline-list/TimelineList.jsx';
+import GridList from '../grid-list/GridList.jsx';
+import TimelineItem from '../timeline-item/TimelineItem.jsx';
 
 class Pagination extends React.Component {
 
@@ -47,14 +47,14 @@ class Pagination extends React.Component {
                             return (
                                 <TableRow key={row.id}>
                                     <TableCell>
-                                        <TimelineList params={row} />
+                                        <TimelineItem params={row} />
                                     </TableCell>
                                 </TableRow>
                             );
                         })
                         : <TableRow style={{ height: 48 * emptyRows }}>
                             <TableCell>
-                                <GridListT params={contentArr} />
+                                <GridList params={contentArr} />
                             </TableCell>
                         </TableRow>
                     }

@@ -9,9 +9,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import './TimelineList.scss';
+import './TimelineItem.scss';
 
-class TimelineList extends React.Component {
+class TimelineItem extends React.Component {
 
     render() {
 
@@ -47,9 +47,9 @@ class TimelineList extends React.Component {
 
 if (process.env !== 'production') {
 
-    TimelineList.propTypes = {
+    TimelineItem.propTypes = {
         params: PropTypes.object.isRequired
     };
 }
 
-export default TimelineList;
+export default TimelineItem;
