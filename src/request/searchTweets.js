@@ -1,12 +1,17 @@
 
 import Promise from 'promise-polyfill';
 
-const searchTwit = (link, params) => {
+const searchTweets = (value) => {
     return new Promise((resolve, reject) => {
 
         const xhr = new XMLHttpRequest();
+        const sendData = {
+            searchTwitsPrams: {
+                value
+            }
+        };
 
-        xhr.open('POST', link, true);
+        xhr.open('POST', 'http://localhost:8088/searchTweets', true);
         xhr.setRequestHeader('Content-type', 'application/json');
         xhr.onload = () => {
 
@@ -24,8 +29,8 @@ const searchTwit = (link, params) => {
                 reject(new Error());
             }
         };
-        xhr.send(JSON.stringify(params));
+        xhr.send(JSON.stringify(sendData));
     });
 };
 
-export default searchTwit;
+export default searchTweets;

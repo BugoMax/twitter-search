@@ -10,9 +10,7 @@ header {
 
   &.app-bar {
 
-    .app-bar__title {
-      color: #fff;
-    }
+    .app-bar__title { color: #fff; }
   }
 }
 
@@ -23,9 +21,7 @@ header {
 
   &__field {
 
-    label, input {
-      color: #fff !important;
-    }
+    label, input { color: #fff !important; }
 
     div:before, div:after { border-bottom: 1px solid #fff; }
 
@@ -33,12 +29,29 @@ header {
   }
 }
 
-.content__table {
+.app {
 
-  td { border-bottom: none; }
+  .content {
 
-  &_pagination {
+    &__table {
 
-    span, div, svg { color: #fff; }
+      td { border-bottom: none; }
+
+      &_pagination {
+
+        span, div, svg { color: #fff; }
+      }
+    }
+
+    &__text {
+      margin-left: 30px;
+      color: #fff;
+    }
+
+    &__progress {
+      display: block;
+      margin: 50px auto;
+    }
   }
 }
+

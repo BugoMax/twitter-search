@@ -1,19 +1,25 @@
 
 import * as constants from '../info/constants';
 
-import getTestParams from './testParams';
+import searchTweets from '../../../request/searchTweets';
 
-export const fetchSearchTwitsSuccess = () => ({
-    type: constants.FETCH_SEARCH_TWITS_SUCCESS, payload: getTestParams(12)
+export const fetchSearchTwitsSuccess = (tweets) => ({
+    type: constants.FETCH_SEARCH_TWEETS_SUCCESS, payload: tweets
 });
 
 export const fetchSearchTwitsFailed = () => ({
-    type: constants.FETCH_SEARCH_TWITS_FAILED
+    type: constants.FETCH_SEARCH_TWEETS_FAILED
 });
 
 export const fetchSearchTwits = (value) => dispatch => {
-    setTimeout(() => {
-        dispatch(fetchSearchTwitsSuccess());
-    }, 2000);
-    return { type: constants.FETCH_SEARCH_TWITS };
+
+    const searchTwitPromise = searchTweets(value);
+
+    searchTwitPromise.then((tweets) => {
+        dispatch(fetchSearchTwitsSuccess(tweets));
+    }).catch((err) => {
+        dispatch(fetchSearchTwitsFailed());
+    });
+
+    dispatch({ type: constants.FETCH_SEARCH_TWEETS });
 };

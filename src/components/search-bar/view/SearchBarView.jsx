@@ -14,10 +14,20 @@ class SearchBarView extends React.Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
+        this.fireOnFetchSearch = this.fireOnFetchSearch.bind(this);
     }
 
     handleChange(e) {
         this.setState({ inputValue: e.target.value });
+    }
+
+    fireOnFetchSearch() {
+
+        const value = this.state.inputValue.trim();
+
+        if (value.length === 0) { return; }
+
+        this.props.onFetchSearch(value);
     }
 
     render() {
@@ -32,7 +42,7 @@ class SearchBarView extends React.Component {
                     margin="normal"
                     onChange={this.handleChange}
                 />
-                <IconButton color="inherit" onClick={() => this.props.onFetchSearch(this.state.inputValue)}>
+                <IconButton color="inherit" onClick={this.fireOnFetchSearch}>
                     <SearchIcon />
                 </IconButton>
 

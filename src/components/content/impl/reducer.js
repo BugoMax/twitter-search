@@ -1,7 +1,7 @@
 
 /* eslint no-case-declarations: 0 */
 
-import { FETCH_SEARCH_TWITS, FETCH_SEARCH_TWITS_SUCCESS, FETCH_SEARCH_TWITS_FAILED } from '../info/constants';
+import { FETCH_SEARCH_TWEETS, FETCH_SEARCH_TWEETS_SUCCESS, FETCH_SEARCH_TWEETS_FAILED } from '../info/constants';
 import createInitialState from '../info/createInitialState';
 
 const contentReducer = () => {
@@ -11,17 +11,17 @@ const contentReducer = () => {
     return (state = initialState, action) => {
 
         switch (action.type) {
-            case FETCH_SEARCH_TWITS:
+            case FETCH_SEARCH_TWEETS:
 
-                return Object.assign({}, state, { isLoad: true, twits: [], isFailed: false});
+                return Object.assign({}, state, { isLoad: true, tweets: [], isFailed: false});
 
-            case FETCH_SEARCH_TWITS_SUCCESS:
+            case FETCH_SEARCH_TWEETS_SUCCESS:
 
-                return Object.assign({}, state, { isLoad: false, twits: action.payload, isFailed: false});
+                return Object.assign({}, state, { isLoad: false, tweets: action.payload, isFailed: false});
 
-            case FETCH_SEARCH_TWITS_FAILED:
+            case FETCH_SEARCH_TWEETS_FAILED:
 
-                return Object.assign({}, state, { isLoad: false, twits: [], isFailed: true});
+                return Object.assign({}, state, { isLoad: false, tweets: [], isFailed: true});
 
             default:
                 return state;

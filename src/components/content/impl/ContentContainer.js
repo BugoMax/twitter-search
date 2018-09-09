@@ -1,12 +1,12 @@
 
 export const mapStateToProps = (props) => {
 
-    const { isLoad, twits, isFailed } = props.content;
+    const { isLoad, tweets, isFailed } = props.content;
 
     return {
         isLoad,
         isFailed,
-        twits
+        tweets
     };
 };
 

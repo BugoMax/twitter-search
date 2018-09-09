@@ -1,7 +1,9 @@
 
 function twitterRoute(app: any):void {
 
-    app.get('/search', function(req: any, res: any, next: any) {
+    app.post('/searchTweets', (req: any, res: any) => {
+
+        console.log(req.body);
 
         client.get('search/tweets', {q: '#nodejs'}, function(error: any, tweets: any, response: any): void {
 

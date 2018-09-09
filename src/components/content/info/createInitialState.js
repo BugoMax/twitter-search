@@ -2,7 +2,7 @@
 const createInitialState = () => ({
     isLoad: false,
     isFailed: false,
-    twits: []
+    tweets: []
 });
 
 export default createInitialState;

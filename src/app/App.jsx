@@ -13,7 +13,7 @@ class App extends React.Component {
 
     render() {
 
-        return <div>
+        return <div className="app">
             <AppBar position="static" color="primary" className="app-bar">
                 <Toolbar>
                     <Typography variant="title" color="textSecondary" className="app-bar__title">

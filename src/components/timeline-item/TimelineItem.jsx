@@ -18,7 +18,7 @@ class TimelineItem extends React.Component {
         return <Card className="timeline-item">
             <CardActionArea>
                 <CardMedia
-                    className="twit-card-img"
+                    className="tweets-card-img"
                     component="img"
                     height="140"
                     image={this.props.params.user.profile_image_url}
