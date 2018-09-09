@@ -5,6 +5,8 @@ import IconButton from '@material-ui/core/IconButton';
 import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
 
+import './SearchBarView.scss';
+
 class SearchBarView extends React.Component {
 
     constructor(props) {

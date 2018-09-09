@@ -25,21 +25,35 @@ class TimelineItem extends React.Component {
                     title="Contemplative Reptile"
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="headline" component="h2">
-                        {this.props.params.user.screen_name}
+                    <Typography gutterBottom variant="headline" component="h2" className="timeline-item__title">
+                        <a
+                            href={this.props.params.user.url}
+                            className="timeline-item__link"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
+                            {this.props.params.user.screen_name}
+                        </a>
                     </Typography>
-                    <Typography component="p">
+                    <Typography component="p" className="timeline-item__text">
                         {this.props.params.text}
                     </Typography>
                 </CardContent>
             </CardActionArea>
             <CardActions>
                 <Button size="small" color="primary">
-                    Share
+                    <a
+                        href={this.props.params.entities.urls[0].url}
+                        className="timeline-item__link"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                    >
+                        Learn More
+                    </a>
                 </Button>
-                <Button size="small" color="primary">
-                    Learn More
-                </Button>
+                <Typography component="p" className="timeline-item__time" align="right">
+                    {this.props.params.created_at}
+                </Typography>
             </CardActions>
         </Card>;
     }

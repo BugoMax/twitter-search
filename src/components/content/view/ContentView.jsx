@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 
 import Pagination from '../../pagination/Pagination.jsx';
 
+import './ContentView.scss';
+
 class Content extends React.Component {
 
     render() {

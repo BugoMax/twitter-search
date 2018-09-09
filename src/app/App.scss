@@ -14,44 +14,9 @@ header {
   }
 }
 
-.search-bar {
-  margin: 15px auto;
-  text-align: center;
-  color: #fff;
-
-  &__field {
-
-    label, input { color: #fff !important; }
-
-    div:before, div:after { border-bottom: 1px solid #fff; }
-
-    div:hover:before, div:hover:after { border-bottom: 2px solid #fff !important; }
-  }
-}
-
 .app {
 
-  .content {
-
-    &__table {
-
-      td { border-bottom: none; }
-
-      &_pagination {
-
-        span, div, svg { color: #fff; }
-      }
-    }
-
-    &__text {
-      margin-left: 30px;
-      color: #fff;
-    }
-
-    &__progress {
-      display: block;
-      margin: 50px auto;
-    }
+  .grid-item__link, .grid-item__icon {
+    color: #fff;
   }
 }
-

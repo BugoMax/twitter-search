@@ -1,0 +1,18 @@
+
+.app {
+
+    .search-bar {
+        margin: 15px auto;
+        text-align: center;
+        color: #fff;
+
+        &__field {
+
+            label, input { color: #fff !important; }
+
+            div:before, div:after { border-bottom: 1px solid #fff; }
+
+            div:hover:before, div:hover:after { border-bottom: 2px solid #fff !important; }
+        }
+    }
+}

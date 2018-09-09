@@ -7,24 +7,34 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 
-const handleCheckColsN = (index) => index % 4 === 0 || (index - 1) % 4 === 0;
-
 class GridList extends React.Component {
 
     render() {
+
+        const getN = (index) => index % 5 === 0 ? 2 : 1;
 
         return <div>
 
             <UIGridList cellHeight={200} spacing={1}>
                 { this.props.params.map((item, index) => {
-                    return <GridListTile cols={1} rows={index !== 0 && index !== 1 && handleCheckColsN(index) ? 2 : 1} key={item.id} >
-                        <img src={item.user.profile_image_url} alt="alt" />
+                    return <GridListTile cols={getN(index + 1)} rows={getN(index + 1)} key={item.id} >
+                        <img src={item.user.profile_image_url} alt={item.entities.hashtags[0].text} />
                         <GridListTileBar
-                            title={item.entities.hashtags[0].text}
-                            subtitle={<span>{item.text}</span>}
+                            title={<a
+                                href={item.user.url}
+                                className="grid-item__link"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >{item.user.screen_name}</a>}
+                            subtitle={<a
+                                href={item.entities.urls[0].url}
+                                className="grid-item__link"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                            >{item.text}</a>}
                             actionIcon={
                                 <IconButton>
-                                    <StarBorderIcon />
+                                    <StarBorderIcon className="grid-item__icon" />
                                 </IconButton>
                             }
                             actionPosition="left"

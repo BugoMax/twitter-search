@@ -1,0 +1,26 @@
+
+.app {
+
+    .content {
+
+        &__table {
+
+            td { border-bottom: none; }
+
+            &_pagination {
+
+                span, div, svg { color: #fff; }
+            }
+        }
+
+        &__text {
+            margin-left: 30px;
+            color: #fff;
+        }
+
+        &__progress {
+            display: block;
+            margin: 50px auto;
+        }
+    }
+}
