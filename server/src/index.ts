@@ -3,12 +3,9 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
-// import server from './app';
 import initRoutes from './routes';
 import config from './config';
 import logger from './logger';
-
-// import request from 'request';
 
 const start = (): void => {
 

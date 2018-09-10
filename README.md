@@ -9,6 +9,11 @@ You can run `first-run.sh` or run in console - `npm install`,
 go to `server` directory and run `npm install` too.
 After go back and - `npm run start`. Go to `http://localhost:8080`.
 
+How to run devserver
+====================
+
+Run `rundev.sh` or in console - `npm run start`.
+
 How to build
 ============
 
