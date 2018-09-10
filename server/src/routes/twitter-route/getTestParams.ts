@@ -1,5 +1,7 @@
 
-const test: object = {
+import TwitInterface from './TwitInterface';
+
+const test: TwitInterface = {
     created_at: 'Mon Feb 26 01:07:05 +0000 2018',
     id: 967928974960545793,
     text: 'Congratulations to #Olympics athletes who won gold! Neutron stars like the one at the heart of the Crab Nebula may… https://t.co/vz4SnPupe2',
@@ -56,7 +58,7 @@ const test: object = {
     favorite_count: 1280
 };
 
-const getTestParams = (amount: number): Array<object> => {
+const getTestParams = (amount: number): Array<TwitInterface> => {
 
     let params = [];
 

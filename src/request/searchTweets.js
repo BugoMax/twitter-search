@@ -19,8 +19,6 @@ const searchTweets = (value) => {
 
                 const data = JSON.parse(xhr.responseText);
 
-                log.warn('data', data);
-
                 resolve(data);
 
             } else {

@@ -5,8 +5,9 @@ Twitter search
 How to start
 ============
 
-You can run `first-run.sh` or run in console - `npm install`
-and than - `npm run start`. Go to `http://localhost:8080`.
+You can run `first-run.sh` or run in console - `npm install`,
+go to `server` directory and run `npm install` too.
+After go back and - `npm run start`. Go to `http://localhost:8080`.
 
 How to build
 ============
