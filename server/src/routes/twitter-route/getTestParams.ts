@@ -1,7 +1,7 @@
 
-import TwitInterface from './TwitInterface';
+import TweetInterface from './TweetInterface';
 
-const test: TwitInterface = {
+const test: TweetInterface = {
     created_at: 'Mon Feb 26 01:07:05 +0000 2018',
     id: 967928974960545793,
     text: 'Congratulations to #Olympics athletes who won gold! Neutron stars like the one at the heart of the Crab Nebula may… https://t.co/vz4SnPupe2',
@@ -31,25 +31,16 @@ const test: TwitInterface = {
         id: 19802879,
         name: 'NASA JPL',
         screen_name: 'NASAJPL',
+        location: 'Bulgaria',
+        description: 'Top JavaScript news and tips brought to you by JS BITS team.',
         url: 'http://t.co/gcM9d1YLUB',
         entities: {
-            url: {
-                urls: [
-                    {
-                        url: 'http://t.co/gcM9d1YLUB',
-                        expanded_url: 'http://www.jpl.nasa.gov',
-                        display_url: 'jpl.nasa.gov',
-                        indices: [
-                            0,
-                            22
-                        ]
-                    }
-                ]
-            },
             description: {
-                'urls': []
+                urls: []
             }
         },
+        followers_count: 1131,
+        friends_count: 661,
         verified: true,
         profile_image_url: 'https://pbs.twimg.com/media/DWwx2uAVQAASfAC.jpg:large',
         profile_image_url_https: 'https://pbs.twimg.com/profile_images/2305452633/lg0hov3l8g4msxbdwv48_normal.jpeg'
@@ -58,7 +49,7 @@ const test: TwitInterface = {
     favorite_count: 1280
 };
 
-const getTestParams = (amount: number): Array<TwitInterface> => {
+const getTestParams = (amount: number): Array<TweetInterface> => {
 
     let params = [];
 

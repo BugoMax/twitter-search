@@ -1,5 +1,5 @@
 
-interface TwitInterface {
+interface TweetInterface {
     created_at: string,
     id: number,
     text: string,
@@ -23,22 +23,16 @@ interface TwitInterface {
         id: number,
         name: string,
         screen_name: string,
-        url: string,
+        location: string,
+        description: string,
+        url: any,
         entities: {
-            url: {
-                urls: [
-                    {
-                        url: string,
-                        expanded_url: string,
-                        display_url: string,
-                        indices: Array<number>
-                    }
-                    ]
-            },
             description: {
                 urls: Array<any>
             }
         },
+        followers_count: number,
+        friends_count: number,
         verified: boolean,
         profile_image_url: string,
         profile_image_url_https: string
@@ -47,4 +41,4 @@ interface TwitInterface {
     favorite_count: number
 }
 
-export default TwitInterface;
+export default TweetInterface;

@@ -42,14 +42,17 @@ class TimelineItem extends React.Component {
             </CardActionArea>
             <CardActions>
                 <Button size="small" color="primary">
-                    <a
-                        href={this.props.params.entities.urls[0].url}
-                        className="timeline-item__link"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                    >
-                        Learn More
-                    </a>
+                    {this.props.params.entities.urls[0]
+                        ? <a
+                            href={this.props.params.entities.urls[0].url}
+                            className="timeline-item__link"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
+                            Learn More
+                        </a>
+                        : 'Learn More'
+                    }
                 </Button>
                 <Typography component="p" className="timeline-item__time" align="right">
                     {this.props.params.created_at}

@@ -1,28 +1,35 @@
 
-// import Twitter from 'twitter';
+import Twitter from 'twitter';
 
 import logger from '../../logger';
-import getTestParams from './getTestParams';
+import ConfigInterface from '../../config/ConfigInterface';
+import TweetModelWorker from './TweetModelWorker';
 
-function twitterRoute(app: any):void {
+function twitterRoute(app: any, config: ConfigInterface): void {
 
-    // const client = new Twitter(config.twitter);
+    const tweetModelWorker = new TweetModelWorker();
+    const client = new Twitter(config.twitter);
 
     app.post('/searchTweets', (req: any, res: any): void => {
 
-        logger.debug(`Type - POST. Route - twitter-search. Body - ${JSON.stringify(req.body)}`);
+        const searchParams = {
+            q: `#${req.body.searchTwitsPrams.value}`,
+            count: 50
+            // result_type: 'recent',
+            // lang: 'en'
+        };
 
-        setTimeout(() => res.send(getTestParams(12)), 1000);
+        logger.debug(`Type - POST. Route - twitter-search. Params - ${JSON.stringify(searchParams)}`);
 
-        // client.get('search/tweets', {q: '#nodejs'}, function(error: any, tweets: any, response: any): void {
-        //
-        //     if (error) {
-        //         res.send({ 'error': 'AN error has occurred' });
-        //         logger.error(error);
-        //     } else {
-        //         res.send(tweets);
-        //     }
-        // });
+        client.get('search/tweets', searchParams, function(error: any, tweets: any, response: any): void {
+
+            if (error) {
+                res.send({ 'error': 'AN error has occurred' });
+                logger.error(error);
+            } else {
+                res.send(tweetModelWorker.parseTweets(tweets.statuses));
+            }
+        });
     });
 }
 
