@@ -21,7 +21,7 @@ class TimelineItem extends React.Component {
                     className="tweets-card-img"
                     component="img"
                     height="140"
-                    image={this.props.params.user.profile_image_url}
+                    image={this.props.params.user.profile_banner_url}
                     title="Contemplative Reptile"
                 />
                 <CardContent>

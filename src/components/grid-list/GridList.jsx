@@ -24,7 +24,7 @@ class GridList extends React.Component {
             <UIGridList cellHeight={200} spacing={1}>
                 { this.props.params.map((item, index) => {
                     return <GridListTile cols={getN(index + 1)} rows={getN(index + 1)} key={item.id} >
-                        <img src={item.user.profile_image_url} alt={item.entities.hashtags[0] ? item.entities.hashtags[0].text : 'img'} />
+                        <img src={item.user.profile_banner_url} alt={item.entities.hashtags[0] ? item.entities.hashtags[0].text : 'img'} />
                         <GridListTileBar
                             title={linkItem(item.user.url, item.user.screen_name)}
                             subtitle={

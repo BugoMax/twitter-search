@@ -35,7 +35,8 @@ interface TweetInterface {
         friends_count: number,
         verified: boolean,
         profile_image_url: string,
-        profile_image_url_https: string
+        profile_image_url_https: string,
+        profile_banner_url: string
     },
     retweet_count: number,
     favorite_count: number

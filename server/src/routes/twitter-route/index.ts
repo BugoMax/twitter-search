@@ -14,9 +14,9 @@ function twitterRoute(app: any, config: ConfigInterface): void {
 
         const searchParams = {
             q: `#${req.body.searchTwitsPrams.value}`,
-            count: 50
-            // result_type: 'recent',
-            // lang: 'en'
+            count: 50,
+            result_type: 'recent',
+            lang: 'en'
         };
 
         logger.debug(`Type - POST. Route - twitter-search. Params - ${JSON.stringify(searchParams)}`);

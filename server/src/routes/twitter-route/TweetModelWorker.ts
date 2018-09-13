@@ -40,7 +40,10 @@ class TweetModelWorker {
                 friends_count: tweet.user.friends_count,
                 verified: tweet.user.verified,
                 profile_image_url: tweet.user.profile_image_url,
-                profile_image_url_https: tweet.user.profile_image_url_https
+                profile_image_url_https: tweet.user.profile_image_url_https,
+                profile_banner_url: tweet.user.profile_use_background_image
+                    ? tweet.user.profile_background_image_url
+                    : tweet.user.profile_banner_url
             },
             retweet_count: tweet.retweet_count,
             favorite_count: tweet.favorite_count
